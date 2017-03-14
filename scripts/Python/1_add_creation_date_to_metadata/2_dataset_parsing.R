@@ -21,7 +21,6 @@ metadata_with_creation_date['uuid'] <- uuid_list
 # order the columns
 metadata_with_creation_date <- metadata_with_creation_date[, c(10, 1, 2, 3, 4, 5, 6, 8, 7, 9)]
 
-
 # save the dataframe
-write.table(metadata_with_creation_date, file = "/Users/gabriel/Documents/2_CODE/MLHD/scripts/Python/1_add_creation_date_to_metadata/output_data/2_metadata_with_creation_date_with_uuid.tsv", row.names=FALSE, sep="\t")
+write.table(metadata_with_creation_date, file = "/Users/gabriel/Documents/2_CODE/MLHD/scripts/Python/1_add_creation_date_to_metadata/output_data/2_metadata_with_creation_date_and_uuid.tsv", row.names=FALSE, sep="\t", quote = FALSE)
 
