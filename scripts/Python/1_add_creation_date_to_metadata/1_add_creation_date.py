@@ -1,17 +1,14 @@
-import os
 import gzip
 import GVM_classes
-import Features
+
 
 class MetadataFeatureExtractor:
     """Extract metadata information from first line of files."""
 
     def metadata(self, user_filepath):
-        """Constructor given a filepath of a GZIP TXT file"""
+        """Constructor given a filepath of a GZIP TXT file."""
         userdata = gzip.GzipFile(user_filepath).readline()
         return userdata
-
-
 
 folderpath = "/Volumes/ListenBUP1/9_ALL_BUP"
 files = GVM_classes.folder_iterator(folderpath)
@@ -21,7 +18,6 @@ outputfile = open('/Users/gabriel/Downloads/metadata_with_creation_date.tsv', 'a
 
 
 for file in files:
-
     # extracting creation date
     f = GVM_classes.FileMetadata()
     creationdate = f.birthdate(file)
@@ -36,4 +32,3 @@ for file in files:
     print metadata
     outputfile.write(metadata)
     outputfile.write('\n')
-
