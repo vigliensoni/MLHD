@@ -12,7 +12,6 @@ metadata_with_creation_date <- metadata_with_creation_date[-c(645, 573897), ]
 # drop non-interesting columns
 metadata_with_creation_date <- subset(metadata_with_creation_date, select = -c(type_int, registered_human, age_days_scrobbles, mean_scrobbles_per_day))
 
-
 # creating UUID for each row (listener)
 uuid_list <- replicate(nrow(metadata_with_creation_date), UUIDgenerate())
 
@@ -24,3 +23,6 @@ metadata_with_creation_date <- metadata_with_creation_date[, c(10, 1, 2, 3, 4, 5
 # save the dataframe
 write.table(metadata_with_creation_date, file = "/Users/gabriel/Documents/2_CODE/MLHD/scripts/Python/1_add_creation_date_to_metadata/output_data/2_metadata_with_creation_date_and_uuid.tsv", row.names=FALSE, sep="\t", quote = FALSE)
 
+# save a new dataframe only with the mapping of lfid to uuid
+lfid_to_uuid_mapping <- subset(metadata_with_creation_date, select = c(lfid, uuid))
+write.table(metadata_with_creation_date, file = "/Users/gabriel/Documents/2_CODE/MLHD/scripts/Python/1_add_creation_date_to_metadata/output_data/3_lfid_to_uuid_mapping.tsv", row.names=FALSE, sep="\t", quote = FALSE)
